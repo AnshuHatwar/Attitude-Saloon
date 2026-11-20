@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATTITUDE SALON AND ACADEMY</title>
+<style>
+    header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}.salon-logo {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+}.header-content {
+    text-align: left;
+}
+
+.header-content h1 {
+    margin: 0;
+    color: #d4af37;
+}
+
+.header-content p {
+    margin: 6px 0;
+}
+
+/* Mobile screen */
+@media (max-width: 600px) {
+    header {
+        gap: 15px;
+    }
+
+    .salon-logo {
+        width: 85px;
+        height: 85px;
+    }
+
+    .header-content h1 {
+        font-size: 22px;
+    }
+}
+:root {
+  --black:#101010; --gold:#e5bd55; --pink:#ed4b91;
+  --white:#fff; --gray:#222;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#111;color:white;font-family:Arial,sans-serif}
+header{text-align:center;padding:22px 12px;background:#080808;border-bottom:2px solid var(--gold)}
+.salon-logo{width:150px;height:150px;object-fit:contain;display:block;margin:auto auto 10px}
+header h1{color:var(--gold);margin:5px;font-size:30px}
+header p{color:var(--pink);margin:5px}
+nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px;background:#191919}
+button{cursor:pointer;border:0;border-radius:6px;padding:10px 14px;font-weight:bold}
+nav button,.btn{background:var(--gold);color:#111}
+main{max-width:1100px;margin:auto;padding:16px}
+.page{display:none}.page.active{display:block}
+h2{color:var(--gold)}
+.card{background:#1d1d1d;padding:16px;border:1px solid #393939;border-radius:10px;margin-bottom:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+input,select{width:100%;padding:11px;border-radius:6px;border:1px solid #555;background:#292929;color:white;margin:5px 0 12px}
+label{color:#f0c968}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{padding:10px;border-bottom:1px solid #444;text-align:left}
+th{color:var(--gold)}
+.total{font-size:22px;color:var(--gold);font-weight:bold}
+.danger{background:#c33;color:white}
+.pink{background:var(--pink);color:white}
+.small{font-size:12px;color:#bbb}
+#invoice{background:white;color:#111;padding:20px;max-width:700px;margin:auto}
+#invoice h2,#invoice h3{color:#111}
+#invoice table th{color:#111}
+#invoice table td,#invoice table th{border-bottom:1px solid #ccc}
+.invoice-logo{width:130px;height:130px;object-fit:contain}
+@media print{
+ body{background:white}
+ body *{visibility:hidden}
+ #invoice,#invoice *{visibility:visible}
+ #invoice{position:absolute;left:0;top:0;width:100%;max-width:none}
+ .no-print{display:none!important}
+}body 
+{
+    background-color: #100D12;
+    background-image:
+        repeating-linear-gradient(
+            135deg,
+            transparent 0px,
+            transparent 35px,
+            rgba(212,175,55,0.07) 36px,
+            transparent 38px
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent 0px,
+            transparent 55px,
+            rgba(255,105,180,0.05) 56px,
+            transparent 58px
+        );
+    background-attachment: fixed;
+}
+
+main {
+    background: transparent;
+    padding: 25px;
+    min-height: 80vh;
+}
+/* PREMIUM ANIMATED HEADER */
+
+header {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(
+        120deg,
+        #050505,
+        #292929,
+        #101010,
+        #383838,
+        #050505
+    );
+    background-size: 300% 300%;
+    animation: darkMove 8s ease infinite;
+    border-bottom: 2px solid #777777;
+}
+
+/* Left and right animated light */
+
+header::before,
+header::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.35;
+    z-index: -1;
+    animation: sideGlow 5s ease-in-out infinite alternate;
+}
+
+header::before {
+    background: #888888;
+    left: -70px;
+    top: -60px;
+}
+
+header::after {
+    background: #555555;
+    right: -70px;
+    bottom: -60px;
+    animation-delay: 2s;
+}
+
+/* Moving background */
+
+@keyframes darkMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes sideGlow {
+    from {
+        transform: scale(0.8);
+        opacity: 0.2;
+    }
+    to {
+        transform: scale(1.3);
+        opacity: 0.5;
+    }
+}
+
+/* Keep logo and heading visible */
+
+header img,
+header .header-content {
+    position: relative;
+    z-index: 2;
+}
+/* ATTITUDE SALON - WINTER BILLING THEME */
+
+.billing-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #05090e,
+        #17232e,
+        #263b4b,
+        #080d14
+    );
+}
+
+/* Icy moving smoke */
+
+.billing-section::before,
+.billing-section::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    width: 140%;
+    height: 180%;
+    left: -20%;
+    bottom: -100%;
+
+    background:
+        radial-gradient(
+            ellipse at 20% 80%,
+            rgba(173, 216, 230, 0.22),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 70% 90%,
+            rgba(120, 190, 220, 0.20),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 50% 60%,
+            rgba(210, 235, 255, 0.13),
+            transparent 45%
+        );
+
+    filter: blur(25px);
+    animation: iceSmoke 12s linear infinite;
+}
+
+.billing-section::after {
+    animation-duration: 18s;
+    animation-delay: -7s;
+    opacity: 0.6;
+    filter: blur(40px);
+}
+
+/* Rising ice smoke animation */
+
+@keyframes iceSmoke {
+    0% {
+        transform: translateY(12) rotate(0deg);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.9;
+    }
+
+    70% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(-100%) rotate(12deg);
+        opacity: 0.1;
+    }
+}
+
+/* Icy blue glowing border */
+
+.billing-section {
+    border: 1px solid rgba(150, 210, 240, 0.25);
+    box-shadow: 0 0 25px rgba(80, 170, 220, 0.12);
+}
+
+/* Keep billing content above smoke */
+
+.billing-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Respect reduced motion preference */
+
+@media (prefers-reduced-motion: reduce) {
+    .billing-section::before,
+    .billing-section::after {
+        animation: ice particle;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="attitude-logo.jpeg" class="salon-logo" alt="ATTITUDE Salon Logo">
+  <h1>ATTITUDE</h1>
+  <p>SALON AND ACADEMY</p>
+  <p>Beauty • Style • Confidence</p>
+</header>
+
+<nav>
+<button onclick="showPage('dashboard')">Dashboard</button>
+<button onclick="showPage('billing')">Create Bill</button>
+<button onclick="showPage('services')">Services</button>
+<button onclick="showPage('history')">Bill History</button>
+<button onclick="showPage('settings')">Settings</button>
+</nav>
+
+<main>
+<section id="dashboard" class="page active">
+<h2>Dashboard</h2>
+<div class="grid">
+<div class="card"><p>Total Bills</p><h2 id="billCount">0</h2></div>
+<div class="card"><p>Today's Sales</p><h2 id="todaySales">₹0</h2></div>
+<div class="card"><p>Total Sales</p><h2 id="totalSales">₹0</h2></div>
+</div>
+<div class="card">
+<h3>ATTITUDE SALON AND ACADEMY</h3>
+<p>Welcome to your salon billing dashboard.</p>
+<button class="btn" onclick="showPage('billing')">Create New Bill</button>
+</div>
+</section>
+
+<section id="billing" class="page">
+<h2>Create New Bill</h2>
+<div class="card">
+<div class="grid">
+<div><label>Customer Name</label><input id="customer" placeholder="Enter customer name"></div>
+<div><label>WhatsApp Number</label><input id="phone" placeholder="91XXXXXXXXXX" type="tel"></div>
+</div>
+<label>Select Service</label>
+<select id="serviceSelect"></select>
+<div class="grid">
+<div><label>Quantity</label><input id="qty" type="number" min="1" value="1"></div>
+<div><label>Service Price (₹)</label><input id="price" type="number" min="0" placeholder="Price"></div>
+</div>
+<button class="btn" onclick="addItem()">Add Service</button>
+<table>
+<thead><tr><th>Service</th><th>Qty</th><th>Price</th><th>Total</th><th></th></tr></thead>
+<tbody id="cart"></tbody>
+</table>
+<div class="grid">
+<div><label>Discount (₹)</label><input id="discount" type="number" min="0" value="0" oninput="calculate()"></div>
+<div><label>GST (%)</label><input id="gst" type="number" min="0" value="0" oninput="calculate()"></div>
+</div>
+<p>Subtotal: ₹<span id="subtotal">0</span></p>
+<p>GST: ₹<span id="gstAmount">0</span></p>
+<p class="total">Grand Total: ₹<span id="grandTotal">0</span></p>
+<button class="btn" onclick="generateBill()">Generate Bill</button>
+</div>
+</section>
+
+<section id="services" class="page">
+<h2>Manage Services</h2>
+<div class="card">
+<label>Service Name</label><input id="newService" placeholder="e.g. Haircut">
+<label>Price (₹)</label><input id="newPrice" type="number" min="0" placeholder="Enter price">
+<button class="btn" onclick="addService()">Add Service</button>
+</div>
+<div class="card">
+<table><thead><tr><th>Service</th><th>Price</th><th>Action</th></tr></thead>
+<tbody id="serviceList"></tbody></table>
+</div>
+</section>
+
+<section id="history" class="page">
+<h2>Bill History</h2>
+<div class="card">
+<table><thead><tr><th>Bill No.</th><th>Customer</th><th>Date</th><th>Total</th><th>Action</th></tr></thead>
+<tbody id="historyList"></tbody></table>
+</div>
+</section>
+
+<section id="settings" class="page">
+<h2>Salon Settings</h2>
+<div class="card">
+<label>Salon Name</label><input id="salonName" value="ATTITUDE SALON AND ACADEMY">
+<label>Contact Number</label><input id="salonPhone" placeholder="Salon contact number">
+<label>Address</label><input id="salonAddress" placeholder="Salon address">
+<button class="btn" onclick="saveSettings()">Save Settings</button>
+<button class="pink" onclick="exportData()">Backup Data</button>
+</div>
+</section>
+
+<section id="invoicePage" class="page">
+<div id="invoice">
+<center>
+<img src="attitude-logo.png" class="invoice-logo" alt="Salon Logo">
+<h2 id="invoiceSalon">ATTITUDE SALON AND ACADEMY</h2>
+<p id="invoiceAddress"></p>
+<p id="invoicePhone"></p>
+<h3>INVOICE</h3>
+</center>
+<hr>
+<p>Bill No: <b id="invNo"></b></p>
+<p>Date: <span id="invDate"></span></p>
+<p>Customer: <span id="invCustomer"></span></p>
+<p>WhatsApp: <span id="invPhone"></span></p>
+<table>
+<thead><tr><th>Service</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead>
+<tbody id="invItems"></tbody>
+</table>
+<p>Subtotal: ₹<span id="invSubtotal"></span></p>
+<p>Discount: ₹<span id="invDiscount"></span></p>
+<p>GST: ₹<span id="invGst"></span></p>
+<h3>Grand Total: ₹<span id="invTotal"></span></h3>
+<center><p>Thank you for visiting ATTITUDE!</p></center>
+</div>
+<div class="no-print card">
+<button class="btn" onclick="window.print()">Print / Save PDF</button>
+<button class="pink" onclick="shareWhatsApp()">Share on WhatsApp</button>
+<button onclick="showPage('billing')">New Bill</button>
+</div>
+</section>
+</main>
+
+<script>
+const defaultServices=[
+{name:"Haircut",price:150},
+{name:"Hair Spa",price:500},
+{name:"Hair Color",price:800},
+{name:"Facial",price:600},
+{name:"Makeup",price:1500},
+{name:"Nail Art",price:400},
+{name:"Head Massage",price:250},
+{name:"Waxing",price:300}
+];
+
+let services=JSON.parse(localStorage.getItem("attServices"))||defaultServices;
+let bills=JSON.parse(localStorage.getItem("attBills"))||[];
+let cart=[];
+let currentBill=null;
+let settings=JSON.parse(localStorage.getItem("attSettings"))||{
+name:"ATTITUDE SALON AND ACADEMY",phone:"",address:""
+};
+
+function saveAll(){
+ localStorage.setItem("attServices",JSON.stringify(services));
+ localStorage.setItem("attBills",JSON.stringify(bills));
+}
+function showPage(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ if(id==="dashboard")dashboard();
+ if(id==="services")renderServices();
+ if(id==="history")renderHistory();
+ if(id==="billing")renderServiceSelect();
+}
+function money(n){return Number(n||0).toFixed(2)}
+function renderServiceSelect(){
+ let s=document.getElementById("serviceSelect");
+ s.innerHTML='<option value="">Choose a service</option>';
+ services.forEach((x,i)=>{
+ s.innerHTML+=`<option value="${i}">${x.name} - ₹${x.price}</option>`;
+ });
+ s.onchange=()=>{
+ let x=services[Number(s.value)];
+ if(x)document.getElementById("price").value=x.price;
+ };
+}
+function addItem(){
+ let index=document.getElementById("serviceSelect").value;
+ let name=index===""?"Custom Service":services[Number(index)].name;
+ let price=Number(document.getElementById("price").value);
+ let qty=Math.max(1,Number(document.getElementById("qty").value)||1);
+ if(!price||price<0){alert("Please enter a valid price");return}
+ cart.push({name,price,qty});
+ renderCart();
+}
+function renderCart(){
+ let body=document.getElementById("cart");
+ body.innerHTML="";
+ cart.forEach((x,i)=>{
+ body.innerHTML+=`<tr><td>${escapeHTML(x.name)}</td><td>${x.qty}</td><td>₹${money(x.price)}</td><td>₹${money(x.price*x.qty)}</td><td><button class="danger" onclick="removeItem(${i})">X</button></td></tr>`;
+ });
+ calculate();
+}
+function removeItem(i){cart.splice(i,1);renderCart()}
+function calculate(){
+ let sub=cart.reduce((a,x)=>a+x.price*x.qty,0);
+ let discount=Math.max(0,Number(document.getElementById("discount").value)||0);
+ let gstRate=Math.max(0,Number(document.getElementById("gst").value)||0);
+ let taxable=Math.max(0,sub-discount);
+ let gst=taxable*gstRate/100;
+ document.getElementById("subtotal").textContent=money(sub);
+ document.getElementById("gstAmount").textContent=money(gst);
+ document.getElementById("grandTotal").textContent=money(taxable+gst);
+ return {sub,discount,gst,total:taxable+gst};
+}
+function generateBill(){
+ let customer=document.getElementById("customer").value.trim();
+ if(!customer){alert("Enter customer name");return}
+ if(!cart.length){alert("Add at least one service");return}
+ let totals=calculate();
+ let bill={
+ no:"AT-"+Date.now().toString().slice(-8),
+ customer,phone:document.getElementById("phone").value.trim(),
+ date:new Date().toLocaleString("en-IN"),
+ items:cart.map(x=>({...x})),...totals
+ };
+ bills.unshift(bill);saveAll();currentBill=bill;
+ showInvoice(bill);showPage("invoicePage");
+ cart=[];
+ document.getElementById("customer").value="";
+ document.getElementById("phone").value="";
+ document.getElementById("discount").value=0;
+ document.getElementById("gst").value=0;
+ renderCart();
+}
+function showInvoice(b){
+ document.getElementById("invoiceSalon").textContent=settings.name;
+ document.getElementById("invoiceAddress").textContent=settings.address;
+ document.getElementById("invoicePhone").textContent=settings.phone;
+ document.getElementById("invNo").textContent=b.no;
+ document.getElementById("invDate").textContent=b.date;
+ document.getElementById("invCustomer").textContent=b.customer;
+ document.getElementById("invPhone").textContent=b.phone||"-";
+ document.getElementById("invItems").innerHTML=b.items.map(x=>
+ `<tr><td>${escapeHTML(x.name)}</td><td>${x.qty}</td><td>₹${money(x.price)}</td><td>₹${money(x.price*x.qty)}</td></tr>`
+ ).join("");
+ document.getElementById("invSubtotal").textContent=money(b.sub);
+ document.getElementById("invDiscount").textContent=money(b.discount);
+ document.getElementById("invGst").textContent=money(b.gst);
+ document.getElementById("invTotal").textContent=money(b.total);
+}
+function shareWhatsApp(){
+ if(!currentBill){alert("No bill selected");return}
+ let b=currentBill;
+ let message=`*${settings.name}*%0AInvoice: ${b.no}%0ACustomer: ${b.customer}%0ADate: ${b.date}%0A`+
+ b.items.map(x=>`${x.name} x ${x.qty} = Rs.${money(x.price*x.qty)}`).join("%0A")+
+ `%0ASubtotal: Rs.${money(b.sub)}%0ADiscount: Rs.${money(b.discount)}%0AGST: Rs.${money(b.gst)}%0A*Grand Total: Rs.${money(b.total)}*%0AThank you!`;
+ let number=(b.phone||"").replace(/\D/g,"");
+ let url=number?`https://wa.me/${number}?text=${message}`:`https://wa.me/?text=${message}`;
+ window.open(url,"_blank");
+}
+function addService(){
+ let name=document.getElementById("newService").value.trim();
+ let price=Number(document.getElementById("newPrice").value);
+ if(!name||!Number.isFinite(price)||price<0){alert("Enter service name and valid price");return}
+ services.push({name,price});saveAll();
+ document.getElementById("newService").value="";
+ document.getElementById("newPrice").value="";
+ renderServices();renderServiceSelect();
+}
+function deleteService(i){
+ if(confirm("Delete this service?")){services.splice(i,1);saveAll();renderServices();renderServiceSelect()}
+}
+function renderServices(){
+ document.getElementById("serviceList").innerHTML=services.map((x,i)=>
+ `<tr><td>${escapeHTML(x.name)}</td><td>₹${money(x.price)}</td><td><button class="danger" onclick="deleteService(${i})">Delete</button></td></tr>`
+ ).join("");
+}
+function renderHistory(){
+ document.getElementById("historyList").innerHTML=bills.map((b,i)=>
+ `<tr><td>${b.no}</td><td>${escapeHTML(b.customer)}</td><td>${b.date}</td><td>₹${money(b.total)}</td><td><button class="btn" onclick="openOldBill(${i})">View</button></td></tr>`
+ ).join("");
+}
+function openOldBill(i){currentBill=bills[i];showInvoice(currentBill);showPage("invoicePage")}
+function dashboard(){
+ let today=new Date().toLocaleDateString("en-IN");
+ let sales=bills.reduce((a,b)=>a+b.total,0);
+ let daily=bills.filter(b=>new Date(b.date).toLocaleDateString("en-IN")===today).reduce((a,b)=>a+b.total,0);
+ document.getElementById("billCount").textContent=bills.length;
+ document.getElementById("todaySales").textContent="₹"+money(daily);
+ document.getElementById("totalSales").textContent="₹"+money(sales);
+}
+function saveSettings(){
+ settings={
+ name:document.getElementById("salonName").value.trim()||"ATTITUDE SALON AND ACADEMY",
+ phone:document.getElementById("salonPhone").value.trim(),
+ address:document.getElementById("salonAddress").value.trim()
+ };
+ localStorage.setItem("attSettings",JSON.stringify(settings));
+ alert("Settings saved");
+}
+function exportData(){
+ let data={services,bills,settings};
+ let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+ let a=document.createElement("a");
+ a.href=URL.createObjectURL(blob);a.download="attitude-salon-backup.json";a.click();
+ URL.revokeObjectURL(a.href);
+}
+function escapeHTML(value){
+ return String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+document.getElementById("salonName").value=settings.name;
+document.getElementById("salonPhone").value=settings.phone;
+document.getElementById("salonAddress").value=settings.address;
+renderServiceSelect();renderServices();dashboard();
+</script>
+</body>
+</html>
